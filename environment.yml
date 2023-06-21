@@ -1,5 +1,7 @@
 name: GENIUS
 channels:
+  - nvidia
+  - pytorch
   - conda-forge
   - bioconda
   - defaults
@@ -9,19 +11,28 @@ dependencies:
   - _openmp_mutex=4.5=2_kmp_llvm
   - alsa-lib=1.2.8=h166bdaf_0
   - attr=2.5.1=h166bdaf_1
+  - blas=1.0=mkl
   - brotli=1.0.9=h166bdaf_8
   - brotli-bin=1.0.9=h166bdaf_8
   - bzip2=1.0.8=h7f98852_4
   - ca-certificates=2023.5.7=hbcca054_0
-  - cairo=1.16.0=hbbf8b49_1016
-  - captum=0.6.0=pyhd8ed1ab_0
+  - cairo=1.16.0=ha61ee94_1014
+  - captum=0.6.0=0
   - certifi=2023.5.7=pyhd8ed1ab_0
   - charset-normalizer=3.1.0=pyhd8ed1ab_0
   - colorama=0.4.6=pyhd8ed1ab_0
   - contourpy=1.1.0=py38h7f3f72f_0
+  - cuda-cudart=11.8.89=0
+  - cuda-cupti=11.8.87=0
+  - cuda-libraries=11.8.0=0
+  - cuda-nvrtc=11.8.89=0
+  - cuda-nvtx=11.8.86=0
+  - cuda-runtime=11.8.0=0
   - cycler=0.11.0=pyhd8ed1ab_0
   - dbus=1.13.6=h5008d03_3
   - expat=2.5.0=hcb278e6_1
+  - ffmpeg=4.3=hf484d3e_0
+  - fftw=3.3.10=nompi_hc118613_108
   - filelock=3.12.2=pyhd8ed1ab_0
   - font-ttf-dejavu-sans-mono=2.37=hab24e00_0
   - font-ttf-inconsolata=3.000=h77eed37_0
@@ -37,35 +48,46 @@ dependencies:
   - glib-tools=2.76.3=hfc55251_0
   - gmp=6.2.1=h58526e2_0
   - gmpy2=2.1.2=py38h793c122_1
+  - gnutls=3.6.13=h85f3911_1
   - graphite2=1.3.13=h58526e2_1001
-  - gst-plugins-base=1.22.3=h938bd60_1
-  - gstreamer=1.22.3=h977cf35_1
-  - harfbuzz=7.3.0=hdb3a94d_0
-  - icu=72.1=hcb278e6_0
+  - gst-plugins-base=1.22.0=h4243ec0_2
+  - gstreamer=1.22.0=h25f0c4b_2
+  - gstreamer-orc=0.4.34=hd590300_0
+  - harfbuzz=6.0.0=h8e241bc_0
+  - icu=70.1=h27087fc_0
   - idna=3.4=pyhd8ed1ab_0
   - importlib-resources=5.12.0=pyhd8ed1ab_0
   - importlib_resources=5.12.0=pyhd8ed1ab_0
+  - jack=1.9.22=h11f4161_0
   - jinja2=3.1.2=pyhd8ed1ab_1
   - joblib=1.2.0=pyhd8ed1ab_0
+  - jpeg=9e=h166bdaf_2
   - keyutils=1.6.1=h166bdaf_0
   - kiwisolver=1.4.4=py38h43d8883_1
   - krb5=1.20.1=h81ceb04_0
   - lame=3.100=h166bdaf_1003
-  - lcms2=2.15=haa2dc70_1
+  - lcms2=2.15=hfd0df8a_0
   - ld_impl_linux-64=2.40=h41732ed_0
   - lerc=4.0.0=h27087fc_0
-  - libblas=3.9.0=17_linux64_openblas
+  - libblas=3.9.0=16_linux64_mkl
   - libbrotlicommon=1.0.9=h166bdaf_8
   - libbrotlidec=1.0.9=h166bdaf_8
   - libbrotlienc=1.0.9=h166bdaf_8
   - libcap=2.67=he9d0100_0
-  - libcblas=3.9.0=17_linux64_openblas
-  - libclang=16.0.5=default_h1cdf331_0
-  - libclang13=16.0.5=default_h4d60ac6_0
+  - libcblas=3.9.0=16_linux64_mkl
+  - libclang=15.0.7=default_h7634d5b_2
+  - libclang13=15.0.7=default_h9986a30_2
+  - libcublas=11.11.3.6=0
+  - libcufft=10.9.0.58=0
+  - libcufile=1.6.1.9=0
   - libcups=2.3.3=h36d4200_3
-  - libdeflate=1.18=h0b41bf4_0
+  - libcurand=10.3.2.106=0
+  - libcusolver=11.4.1.48=0
+  - libcusparse=11.7.5.86=0
+  - libdb=6.2.32=h9c3ff4c_0
+  - libdeflate=1.17=h0b41bf4_0
   - libedit=3.1.20191231=he28a2e2_2
-  - libevent=2.1.12=hf998b51_1
+  - libevent=2.1.10=h28343ad_4
   - libexpat=2.5.0=hcb278e6_1
   - libffi=3.4.2=h7f98852_5
   - libflac=1.4.2=h27087fc_0
@@ -76,12 +98,15 @@ dependencies:
   - libglib=2.76.3=hebfc3b9_0
   - libgomp=13.1.0=he5830b7_0
   - libgpg-error=1.46=h620e276_0
-  - libhwloc=2.9.1=nocuda_h7313eea_6
+  - libhwloc=2.9.1=hd6dc26d_0
   - libiconv=1.17=h166bdaf_0
-  - libjpeg-turbo=2.1.5.1=h0b41bf4_0
-  - liblapack=3.9.0=17_linux64_openblas
-  - libllvm16=16.0.5=h5cf9203_0
+  - libjpeg-turbo=2.1.4=h166bdaf_0
+  - liblapack=3.9.0=16_linux64_mkl
+  - libllvm15=15.0.7=hadd5161_1
+  - libllvm16=16.0.1=hadd5161_0
+  - libnpp=11.8.0.86=0
   - libnsl=2.0.0=h7f98852_0
+  - libnvjpeg=11.9.0.86=0
   - libogg=1.3.4=h7f98852_1
   - libopenblas=0.3.23=pthreads_h80387f5_0
   - libopus=1.3.1=h7f98852_1
@@ -92,13 +117,15 @@ dependencies:
   - libsqlite=3.42.0=h2797004_0
   - libstdcxx-ng=13.1.0=hfd8a6a1_0
   - libsystemd0=253=h8c4010b_1
-  - libtiff=4.5.0=ha587672_6
+  - libtiff=4.5.0=h6adf6a1_2
+  - libtool=2.4.7=h27087fc_0
+  - libudev1=253=h0b41bf4_1
   - libuuid=2.38.1=h0b41bf4_0
   - libvorbis=1.3.7=h9c3ff4c_0
   - libwebp-base=1.3.0=h0b41bf4_0
-  - libxcb=1.15=h0b41bf4_0
-  - libxkbcommon=1.5.0=h5d7e998_3
-  - libxml2=2.11.4=h0d562d8_0
+  - libxcb=1.13=h7f98852_1004
+  - libxkbcommon=1.5.0=h79f4944_1
+  - libxml2=2.10.3=hca2bb57_4
   - libzlib=1.2.13=hd590300_5
   - llvm-openmp=16.0.6=h4dfa4b3_0
   - lz4-c=1.9.4=hcb278e6_0
@@ -114,24 +141,28 @@ dependencies:
   - mysql-common=8.0.32=hf1915f5_2
   - mysql-libs=8.0.32=hca2cd23_2
   - ncurses=6.4=hcb278e6_0
+  - nettle=3.6=he412f7d_0
   - networkx=3.1=pyhd8ed1ab_0
   - nspr=4.35=h27087fc_0
   - nss=3.89=he45b914_0
   - numpy=1.24.3=py38h59b608b_0
+  - openh264=2.1.1=h780b84a_0
   - openjpeg=2.5.0=hfec8fc6_2
   - openssl=3.1.1=hd590300_1
   - packaging=23.1=pyhd8ed1ab_0
   - pandas=2.0.2=py38h01efb38_0
   - patsy=0.5.3=pyhd8ed1ab_0
   - pcre2=10.40=hc3806b6_0
-  - pillow=9.5.0=py38h885162f_1
+  - pillow=9.4.0=py38hde6dc18_1
   - pip=23.1.2=pyhd8ed1ab_0
   - pixman=0.40.0=h36c2ea0_0
   - platformdirs=3.5.3=pyhd8ed1ab_0
   - ply=3.11=py_1
   - pooch=1.7.0=pyha770c72_3
   - pthread-stubs=0.4=h36c2ea0_1001
-  - pulseaudio-client=16.1=hb77b528_4
+  - pulseaudio=16.1=hcb278e6_3
+  - pulseaudio-client=16.1=h5195f5e_3
+  - pulseaudio-daemon=16.1=ha8d29e2_3
   - pyparsing=3.0.9=pyhd8ed1ab_0
   - pyqt=5.15.7=py38ha0d8c90_3
   - pyqt5-sip=12.11.0=py38h8dc9893_3
@@ -140,9 +171,11 @@ dependencies:
   - python-dateutil=2.8.2=pyhd8ed1ab_0
   - python-tzdata=2023.3=pyhd8ed1ab_0
   - python_abi=3.8=3_cp38
-  - pytorch=2.0.0=cpu_py38h019455c_0
+  - pytorch=1.13.1=py3.8_cpu_0
+  - pytorch-cuda=11.8=h7e8668a_5
+  - pytorch-mutex=1.0=cpu
   - pytz=2023.3=pyhd8ed1ab_0
-  - qt-main=5.15.8=h01ceb2d_12
+  - qt-main=5.15.8=h5d23da1_6
   - readline=8.2=h8228510_1
   - requests=2.31.0=pyhd8ed1ab_0
   - scikit-learn=1.2.2=py38hc099248_2
@@ -160,7 +193,8 @@ dependencies:
   - tk=8.6.12=h27826a3_0
   - toml=0.10.2=pyhd8ed1ab_0
   - tomli=2.0.1=pyhd8ed1ab_0
-  - torchvision=0.15.2=cpu_py38h08b8839_0
+  - torchaudio=0.13.1=py38_cpu
+  - torchvision=0.14.1=py38_cpu
   - tornado=6.3.2=py38h01eb140_0
   - tqdm=4.65.0=pyhd8ed1ab_1
   - typing-extensions=4.6.3=hd8ed1ab_0
@@ -168,16 +202,16 @@ dependencies:
   - unicodedata2=15.0.0=py38h0a891b7_0
   - urllib3=2.0.3=pyhd8ed1ab_0
   - wheel=0.40.0=pyhd8ed1ab_0
-  - xcb-util=0.4.0=hd590300_1
-  - xcb-util-image=0.4.0=h8ee46fc_1
-  - xcb-util-keysyms=0.4.0=h8ee46fc_1
-  - xcb-util-renderutil=0.3.9=hd590300_1
-  - xcb-util-wm=0.4.1=h8ee46fc_1
-  - xkeyboard-config=2.39=hd590300_0
+  - xcb-util=0.4.0=h166bdaf_0
+  - xcb-util-image=0.4.0=h166bdaf_0
+  - xcb-util-keysyms=0.4.0=h166bdaf_0
+  - xcb-util-renderutil=0.3.9=h166bdaf_0
+  - xcb-util-wm=0.4.1=h166bdaf_0
+  - xkeyboard-config=2.38=h0b41bf4_0
   - xorg-kbproto=1.0.7=h7f98852_1002
   - xorg-libice=1.1.1=hd590300_0
   - xorg-libsm=1.2.4=h7391055_0
-  - xorg-libx11=1.8.5=h8ee46fc_0
+  - xorg-libx11=1.8.4=h0b41bf4_0
   - xorg-libxau=1.0.11=hd590300_0
   - xorg-libxdmcp=1.1.3=h7f98852_0
   - xorg-libxext=1.3.4=h0b41bf4_2
