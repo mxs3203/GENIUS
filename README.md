@@ -108,7 +108,7 @@ cd ../ExtractWithIG
 * The training script outputs model with the best loss in .pb format. This file is needed for IG step
 * We run the following script to get the gradients of a model
 ```
-python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/48.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
+python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/best_model.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
 ```
 * This script will produce csv files for every cancer type included in clinical file.
 * This script will also produce PNG image representing attribution of each gene in genome image, for each data source.

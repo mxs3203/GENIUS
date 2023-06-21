@@ -4,7 +4,7 @@
   "lr_decay": 1e-6,
   "weight_decay": 1e-6,
   "epochs": 50,
-  "start_of_lr_decrease": 70,
+  "start_of_lr_decrease": 25,
   "folder": "../data/tcga/genome_images",
   "image_type": "SquareImg",
   "predictor_column": 1,

@@ -11,5 +11,5 @@ echo 'Training finished'
 echo 'Entering ExtractWithIG folder...'
 cd ../ExtractWithIG
 echo 'Analyzing network using Integrated gradients and producing .csv files for each cancer type included in the study...'
-python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/48.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
+python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/best_model.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
 
