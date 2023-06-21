@@ -1,6 +1,8 @@
 import json
 
 import argparse
+import os
+
 import numpy as np
 import torch
 
@@ -25,6 +27,10 @@ else:
 with open(config_path, "r") as jsonfile:
     config = json.load(jsonfile)
     print("Read successful")
+
+if not os.path.exists("saved_models"):
+    # If it doesn't exist, create it
+    os.makedirs("saved_models")
 
 LR = config['LR'] #9.900000000000001e-05
 batch_size = config['batch_size']
