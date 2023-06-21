@@ -29,6 +29,10 @@ https://www.biorxiv.org/content/10.1101/2023.02.09.525144v1
    * Contains subset of TCGA for example runs
 
 # How to use GENIUS?
+### Download the repository
+```
+git clone https://github.com/mxs3203/GENIUS
+```
 ### Step 0 
 We recomend using conda environment using environment.yml file
 ```
