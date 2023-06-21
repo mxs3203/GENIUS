@@ -132,13 +132,13 @@ for ep in range(epochs):
     batch_train_f1,batch_val_auc, batch_train_auc,\
     batch_train_loss, batch_val_f1, batch_val_loss = [],[],[],[],[],[]
     for x, y_dat,id in trainLoader:
-        loss, acc_train, precision,recall,f1,train_auc = batch_train(x.cuda(), y_dat.cuda())
+        loss, acc_train, precision,recall,f1,train_auc = batch_train(x.to(device), y_dat.to(device))
         batch_train_loss.append(loss)
         batch_train_f1.append(f1)
         batch_train_auc.append(train_auc)
 
     for x, y_dat,id in valLoader:
-        loss, acc_val,  precision,recall,f1,val_auc = batch_valid(x.cuda(), y_dat.cuda())
+        loss, acc_val,  precision,recall,f1,val_auc = batch_valid(x.to(device), y_dat.to(device))
         batch_val_loss.append(loss)
         batch_val_f1.append(f1)
         batch_val_auc.append(val_auc)
