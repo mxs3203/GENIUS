@@ -1,0 +1,17 @@
+{
+  "LR": 1e-4,
+  "batch_size": 64,
+  "lr_decay": 1e-6,
+  "weight_decay": 1e-6,
+  "epochs": 50,
+  "start_of_lr_decrease": 70,
+  "folder": "../data/tcga/genome_images",
+  "image_type": "SquareImg",
+  "predictor_column": 1,
+  "response_column": 4,
+  "run_name": "Square",
+  "trainer": "binary",
+  "save_model_score": 0.4,
+  "early_stop_patience": 5,
+  "meta_data": "../data/tcga/clinical.csv"
+}
