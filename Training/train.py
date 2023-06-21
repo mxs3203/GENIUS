@@ -53,7 +53,7 @@ dataset = TCGAImageLoader(config['meta_data'],
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-train_size = int(len(dataset) * 0.7)
+train_size = int(len(dataset) * 0.75)
 test_size = len(dataset) - train_size
 print("Train size: ", train_size)
 print("Test size: ", test_size)
