@@ -29,11 +29,15 @@ https://www.biorxiv.org/content/10.1101/2023.02.09.525144v1
    * Contains subset of TCGA for example runs
 
 # How to use GENIUS?
+### Download the repository
+```
+git clone https://github.com/mxs3203/GENIUS
+```
 ### Step 0 
-We recomend using conda environment using environment.yml file
+We recomend using conda environment using environment.yml file. If you want to name the environment differently replace GENIUS in --name parameter
 ```
 cd GENIUS
-conda env create -f environment.yml
+conda env create --name GENIUS --file environment.yml
 ```
 If pytroch version does not work on your hardware, install the latest PyTorch distribution which works with your hardware. make sure it is compatible with latest numpy, pandas, pickle, sklearn, torchvision and all needed dependencies
 
