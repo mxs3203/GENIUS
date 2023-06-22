@@ -10,8 +10,8 @@ dependencies:
   - matplotlib
   - seaborn
   - scikit-learn
-  - torchvision==0.14.1
+  - torchvision
   - captum
   - tqdm
-  - pytorch==1.13.1
+  - pytorch
 prefix: /home/mateo/anaconda3/envs/GENIUS
