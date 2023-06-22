@@ -14,19 +14,19 @@ sys.path.insert(0, sys.path[0] + "/..")
 from GenomeImage.utils import make_image, find_losses, find_gains, find_mutations, find_gene_expression, \
     find_methylation
 
-if not os.path.exists("../data/tcga/genome_images"):
+if not os.path.exists("../data/example_data/genome_images"):
     # If it doesn't exist, create it
-    os.makedirs("../data/tcga/genome_images")
+    os.makedirs("../data/example_data/genome_images")
 
 DEBUG = False
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument('--clinical_data',type=str, default='../data/tcga/clinical.csv')
-parser.add_argument('--ascat_data',type=str, default='../data/tcga/ascat.csv')
-parser.add_argument('--all_genes_included',type=str, default='../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv')
-parser.add_argument('--mutation_data',type=str, default='../data/tcga/muts.csv')
-parser.add_argument('--gene_exp_data',type=str, default='../data/tcga/gene_exp_matrix.csv')
-parser.add_argument('--gene_methyl_data',type=str, default='../data/tcga/methylation.csv')
+parser.add_argument('--clinical_data',type=str, default='../data/example_data/clinical.csv')
+parser.add_argument('--ascat_data',type=str, default='../data/example_data/ascat.csv')
+parser.add_argument('--all_genes_included',type=str, default='../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv')
+parser.add_argument('--mutation_data',type=str, default='../data/example_data/muts.csv')
+parser.add_argument('--gene_exp_data',type=str, default='../data/example_data/gene_exp_matrix.csv')
+parser.add_argument('--gene_methyl_data',type=str, default='../data/example_data/methylation.csv')
 args = parser.parse_args()
 print(args)
 start_time = time.time()
@@ -70,7 +70,7 @@ for index, row in tqdm(clinical.iterrows(), total=len(clinical)):
     if np.all((feature_vector == 0)):
         print("All zeros in 5d, not saving...")
     else:
-        with open("../data/tcga/genome_images/{}.dat".format(id),
+        with open("../data/example_data/genome_images/{}.dat".format(id),
                   'wb') as f:
             pickle.dump(five_dim_image, f)
             f.close()

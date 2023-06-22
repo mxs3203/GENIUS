@@ -18,11 +18,11 @@ from Training.Dataloader import TCGAImageLoader
 from Training.Models.AE_Square import AE
 
 parser = argparse.ArgumentParser(description='')
-parser.add_argument('--genome_images',type=str, default="../data/tcga/genome_images")
+parser.add_argument('--genome_images',type=str, default="../data/example_data/genome_images")
 parser.add_argument('--config_file',type=str, default="../Training/config")
-parser.add_argument('--clinical_data',type=str, default="../data/tcga/clinical.csv")
+parser.add_argument('--clinical_data',type=str, default="../data/example_data/clinical.csv")
 parser.add_argument('--model_checkpoint',type=str, default="../Training/saved_models/best_model.pb")
-parser.add_argument('--all_genes_file',type=str, default="../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv")
+parser.add_argument('--all_genes_file',type=str, default="../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv")
 parser.add_argument('--attribution_n_steps',type=str, default=10)
 args = parser.parse_args()
 
