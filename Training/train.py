@@ -59,8 +59,8 @@ print("Train size: ", train_size)
 print("Test size: ", test_size)
 train_set, val_set = torch.utils.data.random_split(dataset, [train_size, test_size])
 
-trainLoader = DataLoader(train_set, batch_size=batch_size, num_workers=10, shuffle=True)
-valLoader = DataLoader(val_set, batch_size=batch_size,num_workers=10, shuffle=True)
+trainLoader = DataLoader(train_set, batch_size=batch_size, num_workers=0, shuffle=True)
+valLoader = DataLoader(val_set, batch_size=batch_size,num_workers=0, shuffle=True)
 
 
 net, cost_func = AE(output_size=2), torch.nn.CrossEntropyLoss()
