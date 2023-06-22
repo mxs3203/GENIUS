@@ -70,7 +70,7 @@ for type in cancer_types:
                               response_column,
                               filter_by_type=[type])
     if dataset.annotation.shape[0] != 0:
-        trainLoader = DataLoader(dataset, batch_size=1, num_workers=10, shuffle=False)
+        trainLoader = DataLoader(dataset, batch_size=1, num_workers=0, shuffle=False)
         print(type, "Samples: ", len(trainLoader))
         # prepare empty lists
         heatmaps_meth = []
