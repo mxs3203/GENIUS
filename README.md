@@ -79,8 +79,8 @@ python3 make_images.py --clinical_data ../data/tcga/clinical.csv --ascat_data ..
  	* --ascat_data: Path to output matrix of ASCAT tool. Check the example input for required columns
   	* --all_genes_included: Path to the CSV file that contains ordered genes which will be used to create Genome Image
   	* --mutation_data: Path CSV file representing mutation data. This file should contain Polyphen2 score and HugoSymbol
-  	* --gene_exp_data: Path to the csv file representing gene expression data where rows=genes and columns=sample_ids
-  	* --gene_methyl_data: Path to the csv file representing gene methylation data where rows=genes and columns=sample_ids
+  	* --gene_exp_data: Path to the csv file representing gene expression data where columns=sample_ids and there should be a column named "gene" representing the HugoSymbol of the gene
+  	* --gene_methyl_data: Path to the csv file representing gene methylation data wherecolumns=sample_ids and there should be a column named "gene2" representing the HugoSymbol of the gene
 ## Before next step
 * This should result with new folders "genome_images" and "genome_vector" inside of data folder
   * Genome images are squared images made using all gene provided in all_gene_included file
