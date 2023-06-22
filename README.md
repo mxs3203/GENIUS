@@ -80,7 +80,7 @@ python3 make_images.py --clinical_data ../data/tcga/clinical.csv --ascat_data ..
   	* --all_genes_included: Path to the CSV file that contains ordered genes which will be used to create Genome Image
   	* --mutation_data: Path CSV file representing mutation data. This file should contain Polyphen2 score and HugoSymbol
   	* --gene_exp_data: Path to the csv file representing gene expression data where columns=sample_ids and there should be a column named "gene" representing the HugoSymbol of the gene
-  	* --gene_methyl_data: Path to the csv file representing gene methylation data wherecolumns=sample_ids and there should be a column named "gene2" representing the HugoSymbol of the gene
+  	* --gene_methyl_data: Path to the csv file representing gene methylation data wherecolumns=sample_ids and there should be a column named "gene1" representing the HugoSymbol of the gene
 ## Before next step
 * This should result with new folders "genome_images" and "genome_vector" inside of data folder
   * Genome images are squared images made using all gene provided in all_gene_included file
@@ -103,6 +103,7 @@ The config file can be found in training folder (config) and it is used to chang
 ```
 python3 train.py --config_file config
 ```
+Config arguments:
 ### Step 5: Inspect the model performance 
 * If you are happy with model performance continue with the next step
 * If you do not "trust" the model because it does not predict outcome variable with high certainty, try tweaking the model parameters or hyperparameters.
@@ -120,7 +121,13 @@ python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_
 * This script will produce csv files for every cancer type included in clinical file.
 * This script will also produce PNG image representing attribution of each gene in genome image, for each data source.
 * Make sure you use the same config you used for training the model
-
+* Script arguments:
+	* --genome_images: Path to a folder containing all genome images
+ 	* --config_file: path to a config file used for training the model (previous step)
+  	* --clinical_data: Path to the CSV file that contains ID and output label
+  	* --model_checkpoint: Path to a .pb file produced in the previous step. Should be Training/saved_models/best_model.pb
+  	* --all_genes_file: Path to the CSV file that contains ordered genes which will be used to create Genome Image
+  	* --attribution_n_steps: Number of steps integrated gradients will do in order to evaluate attribution
 ### Step 7: Downstream Analysis
 * Use attribution score in downstream analysis of your choice
 
