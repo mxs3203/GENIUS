@@ -46,7 +46,12 @@ If conda environment is not automatically activated, activate it with:
 conda activate GENIUS
 ```
 ### Running Example data
-* The follwing script summarizes the process 
+* You can also use bash script which will run the entire pipeline with example data. This takes approx. 1h depending on your computer
+```
+cd GENIUS
+./run_genius.sh
+```
+* The following script summarizes the process 
 ```
 cd GenomeImage/
 python3 make_images.py --clinical_data ../data/example_data/clinical.csv --ascat_data ../data/example_data/ascat.csv --all_genes_included ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/example_data/muts.csv --gene_exp_data ../data/example_data/gene_exp_matrix.csv --gene_methyl_data ../data/example_data/methylation.csv
@@ -55,11 +60,7 @@ python3 train.py --config_file config
 cd ../ExtractWithIG
 python3 analyze_network.py --genome_images ../data/example_data/genome_images/ --config_file ../Training/config --clinical_data ../data/example_data/clinical.csv --model_checkpoint ../Training/saved_models/48.pb --all_genes_file ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
 ```
-* You can also use bash script which contains the code above
-```
-cd GENIUS
-./run_genius.sh
-```
+
 # Running GENIUS one step at the time
 ### Step 1: Raw data
 Organize your raw data into data folder
