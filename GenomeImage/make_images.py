@@ -46,7 +46,7 @@ gene_exp = pd.read_csv(args.gene_exp_data)
 print("Reading Methylation...")
 methy = pd.read_csv(args.gene_methyl_data)
 
-for index, row in tqdm(clinical.iterrows()):
+for index, row in tqdm(clinical.iterrows(), total=len(clinical)):
 
     id = row['bcr_patient_barcode']
     if DEBUG:
