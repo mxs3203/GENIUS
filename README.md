@@ -30,6 +30,7 @@ https://www.biorxiv.org/content/10.1101/2023.02.09.525144v1
 
 # How to use GENIUS?
 ### Download the repository
+If you do not have conda installed on your computer please install it using following link: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
 ```
 git clone https://github.com/mxs3203/GENIUS
 ```
@@ -40,7 +41,10 @@ cd GENIUS
 conda env create --name GENIUS --file environment.yml
 ```
 If pytroch version does not work on your hardware, install the latest PyTorch distribution which works with your hardware. make sure it is compatible with latest numpy, pandas, pickle, sklearn, torchvision and all needed dependencies
-
+If conda environment is not automatically activated, activate it with:
+```
+conda activate GENIUS
+```
 ### Running Example data
 * The follwing script summarizes the process 
 ```

@@ -13,7 +13,5 @@ dependencies:
   - torchvision==0.14.1
   - captum
   - tqdm
-  - pytorch-cuda=11.8
   - pytorch==1.13.1
-  - torchaudio==0.13.1
 prefix: /home/mateo/anaconda3/envs/GENIUS

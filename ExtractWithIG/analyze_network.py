@@ -53,7 +53,8 @@ optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 net.eval()
 # make IG Instance of a model
 occlusion = captum.attr.IntegratedGradients(wrapped_model)
-cancer_types = ['OV', 'BLCA','KIRC', 'STAD', 'UCEC']
+cancer_type_info = pd.read_csv(metadata, sep=",")
+cancer_types = cancer_type_info['type'].unique().tolist()
 
 
 

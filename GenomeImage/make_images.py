@@ -7,6 +7,8 @@ import numpy as np
 import pickle
 import time
 
+from tqdm import tqdm
+
 sys.path.insert(0, sys.path[0] + "/..")
 
 from GenomeImage.utils import make_image, find_losses, find_gains, find_mutations, find_gene_expression, \
@@ -16,6 +18,7 @@ if not os.path.exists("../data/tcga/genome_images"):
     # If it doesn't exist, create it
     os.makedirs("../data/tcga/genome_images")
 
+DEBUG = False
 
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--clinical_data',type=str, default='../data/tcga/clinical.csv')
@@ -43,28 +46,23 @@ gene_exp = pd.read_csv(args.gene_exp_data)
 print("Reading Methylation...")
 methy = pd.read_csv(args.gene_methyl_data)
 
-for index, row in clinical.iterrows():
+for index, row in tqdm(clinical.iterrows()):
 
     id = row['bcr_patient_barcode']
-    print(id)
-    print(index, "/", clinical.shape[0], "  ", id)
+    if DEBUG:
+        print(id)
+        print(index, "/", clinical.shape[0], "  ", id)
     met = row['metastatic_one_two_three']
 
     tmp_mut = muts[muts["sampleID"] == id]
 
-    print("\tMaking image")
     image = make_image(id, met, all_genes)
-    print("\tMapping losses to genes")
     image = find_losses(id, image, all_genes, ascat_loss)
-    print("\tMapping gains to genes")
     image = find_gains(id, image, all_genes, ascat_gain)
-    print("\tMapping mutations to genes")
     image = find_mutations(id, image, tmp_mut)
-    print("\tMapping expression to genes")
     image = find_gene_expression(id, image, gene_exp,
                                  np.min(np.array(gene_exp.select_dtypes(include=np.number))),
                                  np.max(np.array(gene_exp.select_dtypes(include=np.number))))
-    print("\tMapping methylation to genes")
     image = find_methylation(id, image, methy)
     image.make_image_matrces()
     five_dim_image = image.make_5_dim_image()
@@ -72,7 +70,6 @@ for index, row in clinical.iterrows():
     if np.all((feature_vector == 0)):
         print("All zeros in 5d, not saving...")
     else:
-        print("\tStoring n dim images in .dat file")
         with open("../data/tcga/genome_images/{}.dat".format(id),
                   'wb') as f:
             pickle.dump(five_dim_image, f)
