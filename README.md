@@ -26,7 +26,7 @@ https://www.biorxiv.org/content/10.1101/2023.02.09.525144v1
  * ExtractWithIG: Code for using Integrated Gradients in order to retrieve attribution scores
    * This folder also includes a script to encode your genome image into a L vector
  * data: This folder is for input data
-   * Contains subset of TCGA for example runs
+   * Contains data for example runs
 
 # How to use GENIUS?
 ### Download the repository
@@ -49,11 +49,11 @@ conda activate GENIUS
 * The follwing script summarizes the process 
 ```
 cd GenomeImage/
-python3 make_images.py --clinical_data ../data/tcga/clinical.csv --ascat_data ../data/tcga/ascat.csv --all_genes_included ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/tcga/muts.csv --gene_exp_data ../data/tcga/gene_exp_matrix.csv --gene_methyl_data ../data/tcga/methylation.csv
+python3 make_images.py --clinical_data ../data/example_data/clinical.csv --ascat_data ../data/example_data/ascat.csv --all_genes_included ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/example_data/muts.csv --gene_exp_data ../data/example_data/gene_exp_matrix.csv --gene_methyl_data ../data/example_data/methylation.csv
 cd ../Training/
 python3 train.py --config_file config
 cd ../ExtractWithIG
-python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/48.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
+python3 analyze_network.py --genome_images ../data/example_data/genome_images/ --config_file ../Training/config --clinical_data ../data/example_data/clinical.csv --model_checkpoint ../Training/saved_models/48.pb --all_genes_file ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
 ```
 * You can also use bash script which contains the code above
 ```
@@ -73,9 +73,9 @@ cd GenomeImage
 ```
 python3 make_images.py
 ```
-* If you want to use your data check input format of data/tcga files and use argument for your data. Replace paths with your data
+* If you want to use your data check input format of data/example_data files and use argument for your data. Replace paths with your data
 ```
-python3 make_images.py --clinical_data ../data/tcga/clinical.csv --ascat_data ../data/tcga/ascat.csv --all_genes_included ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/tcga/muts.csv --gene_exp_data ../data/tcga/gene_exp_matrix.csv --gene_methyl_data ../data/tcga/methylation.csv
+python3 make_images.py --clinical_data ../data/example_data/clinical.csv --ascat_data ../data/example_data/ascat.csv --all_genes_included ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/example_data/muts.csv --gene_exp_data ../data/example_data/gene_exp_matrix.csv --gene_methyl_data ../data/example_data/methylation.csv
 ```
 * NOTE: This step takes approx 10mins for every 500images
 * Script arguments:
@@ -120,7 +120,7 @@ cd ../ExtractWithIG
 * The training script outputs model with the best loss in .pb format. This file is needed for IG step
 * We run the following script to get the gradients of a model
 ```
-python3 analyze_network.py --genome_images ../data/tcga/genome_images/ --config_file ../Training/config --clinical_data ../data/tcga/clinical.csv --model_checkpoint ../Training/saved_models/best_model.pb --all_genes_file ../data/tcga/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
+python3 analyze_network.py --genome_images ../data/example_data/genome_images/ --config_file ../Training/config --clinical_data ../data/example_data/clinical.csv --model_checkpoint ../Training/saved_models/best_model.pb --all_genes_file ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --attribution_n_steps 10
 ```
 * This script will produce csv files for every cancer type included in clinical file.
 * This script will also produce PNG image representing attribution of each gene in genome image, for each data source.
