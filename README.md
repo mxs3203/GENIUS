@@ -82,7 +82,7 @@ python3 make_images.py --clinical_data ../data/example_data/clinical.csv --ascat
 * Script arguments:
 	* --clinical_data: Path to CSV file that must contain ID and label column we will use for prediction
  	* --ascat_data: Path to output matrix of ASCAT tool. Check the example input for required columns
-  	* --all_genes_included: Path to the CSV file that contains ordered genes which will be used to create Genome Image
+  	* --all_genes_included: Path to the CSV file that contains the order of the genes which will be used to create Genome Image
   	* --mutation_data: Path CSV file representing mutation data. This file should contain Polyphen2 score and HugoSymbol
   	* --gene_exp_data: Path to the csv file representing gene expression data where columns=sample_ids and there should be a column named "gene" representing the HugoSymbol of the gene
   	* --gene_methyl_data: Path to the csv file representing gene methylation data wherecolumns=sample_ids and there should be a column named "gene1" representing the HugoSymbol of the gene
