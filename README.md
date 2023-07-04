@@ -75,6 +75,7 @@ cd GenomeImage
 python3 make_images.py
 ```
 * If you want to use your data check input format of data/example_data files and use argument for your data. Replace paths with your data
+* If you want to use a different order of genes, you can provide a customized list in the same format as in example
 ```
 python3 make_images.py --clinical_data ../data/example_data/clinical.csv --ascat_data ../data/example_data/ascat.csv --all_genes_included ../data/example_data/all_genes_ordered_by_chr_no_sex_chr.csv --mutation_data ../data/example_data/muts.csv --gene_exp_data ../data/example_data/gene_exp_matrix.csv --gene_methyl_data ../data/example_data/methylation.csv
 ```
